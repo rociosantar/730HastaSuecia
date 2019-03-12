@@ -43,3 +43,17 @@ paginate: 5
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+social:
+  facebook: ZebaSz
+  twitter: ZebaSzp
+  instagram: zebaszp
+
+sebita:
+  name: Sebastián Ariel Szperling
+  image: sebita.jpg
+
+rocio:
+  name: Rocío Santarcieri
+  image: rocio.jpg

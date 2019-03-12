@@ -311,7 +311,7 @@ $(document).ready(function()
 			$('.grid').masonry(
 			{
 				itemSelector:'.grid-item',
-				columnWidth: '.card_small_with_image',
+				columnWidth: '.card',
 				gutter:30
 			});
 		}, 500);

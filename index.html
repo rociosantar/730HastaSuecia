@@ -21,21 +21,8 @@ layout: home
 							</div>
 							<div class="section_content">
 								<div class="grid clearfix">
-									
 									{% for post in paginator.posts %}
-									<!-- Small Card With Image -->
-                  {% if post.cover %}
-                  <div class="card card_small_with_image grid-item">
-                    <img class="card-img-top" src="{{ post.cover }}" alt="">
-                  {% else %}
-									<div class="card card_default card_small_no_image grid-item">
-                  {% endif %}
-										<div class="card-body">
-                      <div class="card-title card-title-small"><a href="{{ post.url }}">{{ post.title }}</a></div>
-                      <small class="post_meta"><a href="#">{{ post.author }}</a><span>{{ post.date | date_to_string }}</span></small>
-										</div>
-									</div>
-
+                    {% include post_card.html %}
 									{% endfor %}
 								</div>
 								

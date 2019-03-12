@@ -409,7 +409,7 @@ $(document).ready(function()
 			$('.grid').masonry(
 			{
 				itemSelector:'.grid-item',
-				columnWidth: '.card_default',
+				columnWidth: '.card',
 				gutter:30
 			});
 		}, 500);

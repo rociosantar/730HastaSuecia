@@ -9,12 +9,24 @@
 						<div class="footer_logo"><a href="#">avision</a></div>
 						<div class="footer_social">
 							<ul>
-								<li class="footer_social_facebook"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li class="footer_social_twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li class="footer_social_pinterest"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li class="footer_social_vimeo"><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-								<li class="footer_social_instagram"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li class="footer_social_google"><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                {% if site.social.facebook %}
+								<li class="footer_social_facebook"><a href="https://facebook.com/{{site.social.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.social.twitter %}
+                <li class="footer_social_twitter"><a href="https://twitter.com/{{site.social.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.social.pinterest %}
+                <li class="footer_social_pinterest"><a href="https://pinterest.com/{{site.social.pinterest}}"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.social.vimeo %}
+                <li class="footer_social_vimeo"><a href="https://vimeo.com/{{site.social.vimeo}}"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.social.instagram %}
+								<li class="footer_social_instagram"><a href="https://instagram.com/{{site.social.instagram}}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.social.google %}
+								<li class="footer_social_google"><a href="https://plus.google.com/{{site.social.google}}"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                {% endif %}
 							</ul>
 						</div>
 						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

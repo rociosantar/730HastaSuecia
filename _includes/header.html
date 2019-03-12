@@ -5,15 +5,10 @@
 			<div class="row">
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
-            <div class="logo"><a href="#">{{site.title}}</a></div>
+            <div class="logo"><a href="/">{{site.title}}</a></div>
 						<nav class="main_nav">
 							<ul>
-								<li><a href="#">Sueco</a></li>
-								<li><a href="#">Viajar</a></li>
-								<li><a href="#">Conocer</a></li>
-								<li><a href="#">Vivir </a></li>
-								<li><a href="#">Conocenos </a></li>
-								<li><a href="contact.html">Contacto</a></li>
+                {% include menu_items.html %}
 							</ul>
 						</nav>
 						<div class="search_container ml-auto">
@@ -40,7 +35,7 @@
 
 	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
 		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
-		<div class="logo menu_mm"><a href="#">730 días hasta Suecia</a></div>
+		<div class="logo menu_mm"><a href="/">{{site.title}}</a></div>
 		<div class="search">
 			<form action="#">
 				<input type="search" class="header_search_input menu_mm" required="required" placeholder="Type to Search...">
@@ -49,13 +44,8 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="active"><a href="index.html">Home</a></li>
-								<li><a href="#">Sueco</a></li>
-								<li><a href="#">Viajar</a></li>
-								<li><a href="#">Conocer</a></li>
-								<li><a href="#">Vivir </a></li>
-								<li><a href="#"> Conocenos </a></li>
-								<li><a href="contact.html">Contacto</a></li>
+        <li><a href="/">Home</a></li>
+        {% include menu_items.html %}
 			</ul>
 		</nav>
 	</div>
