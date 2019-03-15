@@ -4,18 +4,18 @@ styles: post
 scripts: post_scripts.html
 sidebar: true
 ---
-{% unless page.author %}
-  {% assign page.author = "rocio" %}
-{% endunless %}
-{% assign author = site[page.author] %}
+{% assign page.author = page.author | default: "rocio" %}
+{% assign author = site.authors[page.author] %}
 
 	<!-- Home -->
 
 	<div class="home">
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="/images/portada_home_suecia_estocolmo.jpg" data-speed="0.8"></div>
 		<div class="home_content">
-			<div class="post_category trans_200"><a href="category.html" class="trans_200">Conocer</a></div>
-			<div class="post_title">Diseño Escandinavo: Arquitectura en Estocolmo</div>
+			{% for category in page.categories %}
+				<div class="post_category trans_200"><a href="/{{site.category_path}}/{{category}}" class="trans_200">{{ site.category_names[category] }}</a></div>
+			{% endfor %}
+			<div class="post_title">{{ page.title }}</div>
 		</div>
 	</div>
 	
@@ -32,84 +32,84 @@ sidebar: true
 
 						<!-- Top Panel -->
 						<div class="post_panel post_panel_top d-flex flex-row align-items-center justify-content-start">
-              {% include post_panel.html %}
+							{% include post_panel.html %}
 						</div>
 
 						<!-- Post Body -->
 						<div class="post_body">
-              {{ content }}
+							{{ content }}
 						</div>
 						
 						<!-- Bottom Panel -->
 						<div class="post_panel bottom_panel d-flex flex-row align-items-center justify-content-start">
-              {% include post_panel.html %}
+							{% include post_panel.html %}
 						</div>
 
 						<!-- Similar Posts -->
 						<div class="similar_posts">
 							<div class="grid clearfix">
-                {% comment %} max number of related posts {% endcomment %}
-                {% assign maxRelated = 3 %}
+								{% comment %} max number of related posts {% endcomment %}
+								{% assign maxRelated = 3 %}
 
-                {% comment %} min number of common tags to be a related post {% endcomment %}
-                {% assign minCommonTags =  1 %}
+								{% comment %} min number of common tags to be a related post {% endcomment %}
+								{% assign minCommonTags =	1 %}
 
-                {% assign maxRelatedCounter = 0 %}
+								{% assign maxRelatedCounter = 0 %}
 
-                {% for post in site.posts %}
+								{% for post in site.posts %}
 
-                  {% assign sameTagCount = 0 %}
+									{% assign sameTagCount = 0 %}
 
-                  {% if post.url != page.url %}
-                    {% for tag in post.tags %}
-                      {% if page.tags contains tag %}
-                        {% assign sameTagCount = sameTagCount | plus: 1 %}
-                      {% endif %}
-                    {% endfor %}
-                  {% endif %}
+									{% if post.url != page.url %}
+										{% for tag in post.tags %}
+											{% if page.tags contains tag %}
+												{% assign sameTagCount = sameTagCount | plus: 1 %}
+											{% endif %}
+										{% endfor %}
+									{% endif %}
 
-                  {% if sameTagCount >= minCommonTags %}
-                    {% include post_card.html %}
-                    {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
-                    {% if maxRelatedCounter >= maxRelated %}
-                      {% break %}
-                    {% endif %}
-                  {% endif %}
+									{% if sameTagCount >= minCommonTags %}
+										{% include post_card.html %}
+										{% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+										{% if maxRelatedCounter >= maxRelated %}
+											{% break %}
+										{% endif %}
+									{% endif %}
 
-                {% endfor %}
+								{% endfor %}
 
 							</div>
 
 							<!-- Post Comment -->
-              {% if page.comments %}
-              <div class="comments">
-                <div id="disqus_thread"></div>
-                <script>
+							{% if page.comments %}
+							<div class="comments">
+								<div id="disqus_thread"></div>
+								<script>
 
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://730-dias-hasta-suecia.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              {% endif %}
-              </div>
+								/**
+								*	RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+								*	LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+								/*
+								var disqus_config = function () {
+								this.page.url = PAGE_URL;	// Replace PAGE_URL with your page's canonical URL variable
+								this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+								};
+								*/
+								(function() { // DON'T EDIT BELOW THIS LINE
+								var d = document, s = d.createElement('script');
+								s.src = 'https://730-dias-hasta-suecia.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+								})();
+								</script>
+								<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+							{% endif %}
+							</div>
 						</div>
 					</div>
 				</div>
 
-        {% include sidebar.html %}
+				{% include sidebar.html %}
 
 			</div>
 		</div>

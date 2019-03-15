@@ -1,0 +1,32 @@
+---
+layout: default
+sidebar: true
+---
+
+<!-- Category -->
+
+<div class="category">
+	<div class="section_panel d-flex flex-row align-items-center justify-content-start">
+		<div class="section_title">Categorías</div>
+		<div class="section_tags ml-auto">
+			<ul>
+				{% for category in site.categories %}
+				{% assign cat = category | first %}
+				<li
+					{% if cat == page.category %}
+					class="active"
+					{% endif %}>
+					<a href="/{{site.category_path}}/{{cat}}">{{ site.category_names[cat] }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div class="section_content">
+		<div class="grid clearfix">
+			{% for post in page.paginator.posts %}
+        {% include post_card.html %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
