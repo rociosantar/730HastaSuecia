@@ -1,0 +1,46 @@
+---
+---
+@charset "utf-8";
+
+.parallax-window
+{
+    min-height: 400px;
+    background: transparent;
+}
+
+/*********************************
+5. Home
+*********************************/
+
+.home
+{
+	width: 100%;
+	height: 360px;
+}
+.home_background
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*********************************
+6. Main Content
+*********************************/
+
+.category
+{
+	margin-top: 80px;
+}
+
+
+/*********************************
+10. Sidebar
+*********************************/
+
+.sidebar
+{
+	padding-bottom: 80px;
+}

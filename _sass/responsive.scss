@@ -1,25 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
-
-/******************************
-
-[Table of Contents]
-
-1. 1600px
-2. 1440px
-3. 1280px
-4. 1199px
-5. 1024px
-6. 991px
-7. 959px
-8. 880px
-9. 768px
-10. 767px
-11. 539px
-12. 479px
-13. 400px
-
-******************************/
 
 /************
 1. 1600px
@@ -317,10 +296,31 @@
 	{
 		width: 100%;
 	}
-	.post_body
+	.videos
 	{
-		padding-left: 49px;
-		padding-right: 55px;
+		height: auto;
+	}
+	.player_container
+	{
+		height: 287px !important;
+	}
+	.playlist
+	{
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		width: 100%;
+		height: auto;
+		padding-left: 35px;
+	}
+	.playlist_background
+	{
+		width: 100%;
+	}
+	.player_container
+	{
+		width: 100%;
 	}
 }
 
@@ -359,63 +359,23 @@
 	{
 		height: 60px;
 	}
-	.home_content
+	.home_slider_next_container,
+	.home_slider_nav_container
 	{
-		width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
+		display: none;
 	}
-	.post_title
+	.home_slider_content_container
+	{
+		top: 58%;
+	}
+	.home_slider_item_title a
 	{
 		font-size: 20px;
-	}
-	.post_panel .post_meta
-	{
-		font-size: 12px;
-		margin-left: 10px;
-	}
-	.post_panel .post_meta a,
-	.post_panel .post_meta span
-	{
-		font-size: 12px;
-	}
-	.post_panel_top .post_share
-	{
-		display: none;
-	}
-	.bottom_panel .author_image,
-	.bottom_panel .post_meta
-	{
-		display: none;
-	}
-	.post_quote
-	{
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-	.post_p,
-	.post_quote .post_p,
-	.post_quote_source
-	{
-		font-size: 13px;
 	}
 	.card-body
 	{
 		padding-left: 15px;
 		padding-right: 15px;
-	}
-	.comment_input
-	{
-		width: 100%;
-	}
-	.comment_input_email
-	{
-		margin-top: 20px;
-	}
-	.post_body
-	{
-		padding-left: 30px;
-		padding-right: 40px;
 	}
 }
 

@@ -1,0 +1,33 @@
+---
+---
+@charset "utf-8";
+@import "responsive";
+
+/************
+10. 767px
+************/
+
+@media only screen and (max-width: 767px)
+{
+	.post_body
+	{
+		padding-left: 49px;
+		padding-right: 55px;
+	}
+}
+
+/************
+11. 575px
+************/
+
+@media only screen and (max-width: 575px)
+{
+	.comment_input
+	{
+		width: 100%;
+	}
+	.comment_input_email
+	{
+		margin-top: 20px;
+	}
+}
