@@ -1,0 +1,25 @@
+{% assign base = post | default: page %}
+
+{% comment %} min number of common tags to be a related post {% endcomment %}
+{% assign minCommonTags =	1 %}
+
+{% for post in site.posts %}
+
+	{% assign sameTagCount = 0 %}
+
+	{% if post.url != base.url %}
+		{% for tag in post.tags %}
+			{% if base.tags contains tag %}
+				{% assign sameTagCount = sameTagCount | plus: 1 %}
+			{% endif %}
+		{% endfor %}
+		{% if sameTagCount >= minCommonTags %}
+			{% include {{ layout.onRelatedPost }} %}
+			{% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+			{% if layout.maxRelatedCounter >= maxRelated %}
+				{% break %}
+			{% endif %}
+		{% endif %}
+	{% endif %}
+
+{% endfor %}

@@ -3,6 +3,8 @@ layout: base
 styles: post
 scripts: post_scripts.html
 sidebar: true
+
+onRelatedPost: post_card.html
 ---
 {% assign page.author = page.author | default: "rocio" %}
 {% assign author = site.authors[page.author] %}
@@ -10,11 +12,16 @@ sidebar: true
 	<!-- Home -->
 
 	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="/images/portada_home_suecia_estocolmo.jpg" data-speed="0.8"></div>
+		{% assign cover = page.cover | default: site.cover %}
+		<div class="home_slider_background parallax-window" data-parallax="scroll" data-image-src="{{cover}}" data-speed="0.8"></div>
 		<div class="home_content">
+			<ul>
 			{% for category in page.categories %}
-				<div class="post_category trans_200"><a href="/{{site.category_path}}/{{category}}" class="trans_200">{{ site.category_names[category] }}</a></div>
+				<li class="post_category trans_200">
+					<a href="/{{site.category_path}}/{{category}}" class="trans_200">{{ site.category_names[category] }}</a>
+				</li>
 			{% endfor %}
+			</ul>
 			<div class="post_title">{{ page.title }}</div>
 		</div>
 	</div>
@@ -48,36 +55,7 @@ sidebar: true
 						<!-- Similar Posts -->
 						<div class="similar_posts">
 							<div class="grid clearfix">
-								{% comment %} max number of related posts {% endcomment %}
-								{% assign maxRelated = 3 %}
-
-								{% comment %} min number of common tags to be a related post {% endcomment %}
-								{% assign minCommonTags =	1 %}
-
-								{% assign maxRelatedCounter = 0 %}
-
-								{% for post in site.posts %}
-
-									{% assign sameTagCount = 0 %}
-
-									{% if post.url != page.url %}
-										{% for tag in post.tags %}
-											{% if page.tags contains tag %}
-												{% assign sameTagCount = sameTagCount | plus: 1 %}
-											{% endif %}
-										{% endfor %}
-									{% endif %}
-
-									{% if sameTagCount >= minCommonTags %}
-										{% include post_card.html %}
-										{% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
-										{% if maxRelatedCounter >= maxRelated %}
-											{% break %}
-										{% endif %}
-									{% endif %}
-
-								{% endfor %}
-
+								{% include related_posts.html %}
 							</div>
 
 							<!-- Post Comment -->

@@ -46,6 +46,8 @@ paginate: 5
 #   - vendor/gems/
 #   - vendor/ruby/
 
+cover: /images/portada_home_suecia_estocolmo.jpg
+
 social:
   facebook: ZebaSz
   twitter: ZebaSzp
