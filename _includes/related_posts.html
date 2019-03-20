@@ -3,6 +3,8 @@
 {% comment %} min number of common tags to be a related post {% endcomment %}
 {% assign minCommonTags =	1 %}
 
+{% assign relatedCount = 0 %}
+
 {% for post in site.posts %}
 
 	{% assign sameTagCount = 0 %}
@@ -15,8 +17,8 @@
 		{% endfor %}
 		{% if sameTagCount >= minCommonTags %}
 			{% include {{ layout.onRelatedPost }} %}
-			{% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
-			{% if layout.maxRelatedCounter >= maxRelated %}
+			{% assign relatedCount = relatedCount | plus: 1 %}
+			{% if layout.maxRelatedCounter <= relatedCount %}
 				{% break %}
 			{% endif %}
 		{% endif %}
