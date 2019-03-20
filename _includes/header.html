@@ -5,10 +5,10 @@
 			<div class="row">
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
-            <div class="logo"><a href="/">{{site.title}}</a></div>
+						<div class="logo"><a href="/">{{site.title}}</a></div>
 						<nav class="main_nav">
 							<ul>
-                {% include menu_items.html %}
+								{% include menu_items.html %}
 							</ul>
 						</nav>
 						<div class="search_container ml-auto">
@@ -39,13 +39,13 @@
 		<div class="search">
 			<form action="#">
 				<input type="search" class="header_search_input menu_mm" required="required" placeholder="Type to Search...">
-				<img class="header_search_icon menu_mm" src="/images/search_2.png" alt="">
+				<i class="header_search_icon fa fa-search menu_mm"></i>
 			</form>
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-        <li><a href="/">Home</a></li>
-        {% include menu_items.html %}
+				<li><a href="/">Home</a></li>
+				{% include menu_items.html %}
 			</ul>
 		</nav>
 	</div>
