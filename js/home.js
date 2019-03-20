@@ -31,6 +31,7 @@ $(document).ready(function()
 	var menuActive = false;
 	var menu = $('.menu');
 	var burger = $('.hamburger');
+	var moreButton = $("#load_more")
 
 	setHeader();
 
@@ -402,18 +403,32 @@ $(document).ready(function()
 
 	*/
 
+	function calculateGrid() {
+		$('.grid').masonry(
+		{
+			itemSelector:'.grid-item',
+			columnWidth: '.card',
+			gutter: 30,
+			transitionDuration: 0
+		});
+	}
+
 	function initGrid()
 	{
-		setTimeout(function()
-		{
-			$('.grid').masonry(
-			{
-				itemSelector:'.grid-item',
-				columnWidth: '.card',
-				gutter:30
-			});
-		}, 500);
-			
+		setTimeout(calculateGrid, 500);
+		
+		moreButton.click(function() {
+			var group = moreButton.data("group");
+			$(".home-paginator-group-" + group).removeClass("home-paginator-hidden");
+			group = + group + 1;
+			if($(".home-paginator-group-" + group).length) {
+				moreButton.data("group", group);
+			} else {
+				moreButton.addClass("home-paginator-hidden");
+			}
+			calculateGrid();
+		});
+
 	}
 
 });

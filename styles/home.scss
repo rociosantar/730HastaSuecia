@@ -1,4 +1,21 @@
 ---
 ---
+@charset "UTF-8";
 @import "main";
-@import "responsive";
+
+@include keyframe(card-slide-up) {
+	from {
+		@include transform(translateY(100%));
+		opacity: 0;
+	}
+	to {
+	}
+}
+
+.home-paginator-hidden {
+	display: none;
+}
+
+.home-card .grid-item {
+	@include animation(card-slide-up ease 0.5s)
+}
